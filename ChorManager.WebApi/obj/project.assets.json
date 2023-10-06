@@ -45,6 +45,9 @@
           }
         }
       },
+      "SonarAnalyzer.CSharp/9.11.0.78383": {
+        "type": "package"
+      },
       "Swashbuckle.AspNetCore/6.5.0": {
         "type": "package",
         "dependencies": {
@@ -371,6 +374,26 @@
         "microsoft.openapi.nuspec"
       ]
     },
+    "SonarAnalyzer.CSharp/9.11.0.78383": {
+      "sha512": "S7I6gq7jZHlolMRqjfXLWGarxCtlcGHwYs/gA2NrIY0n8MpoW8bB1gyMs0EeoH5FjvhUZ9cHq2SBz4RvR3KrNg==",
+      "type": "package",
+      "path": "sonaranalyzer.csharp/9.11.0.78383",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "analyzers/Google.Protobuf.dll",
+        "analyzers/SonarAnalyzer.CFG.dll",
+        "analyzers/SonarAnalyzer.CSharp.dll",
+        "analyzers/SonarAnalyzer.dll",
+        "images/sonarsource_64.png",
+        "license/THIRD-PARTY-NOTICES.txt",
+        "sonaranalyzer.csharp.9.11.0.78383.nupkg.sha512",
+        "sonaranalyzer.csharp.nuspec",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
     "Swashbuckle.AspNetCore/6.5.0": {
       "sha512": "FK05XokgjgwlCI6wCT+D4/abtQkL1X1/B9Oas6uIwHFmYrIO9WUD5aLC9IzMs9GnHfUXOtXZ2S43gN1mhs5+aA==",
       "type": "package",
@@ -465,6 +488,7 @@
   "projectFileDependencyGroups": {
     "net7.0": [
       "Microsoft.AspNetCore.OpenApi >= 7.0.10",
+      "SonarAnalyzer.CSharp >= 9.11.0.78383",
       "Swashbuckle.AspNetCore >= 6.5.0"
     ]
   },
@@ -509,6 +533,11 @@
             "target": "Package",
             "version": "[7.0.10, )"
           },
+          "SonarAnalyzer.CSharp": {
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[9.11.0.78383, )"
+          },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.5.0, )"
@@ -533,7 +562,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.110/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.111/RuntimeIdentifierGraph.json"
       }
     }
   }

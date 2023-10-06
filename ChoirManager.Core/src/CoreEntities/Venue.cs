@@ -1,4 +1,4 @@
-using ChoirManager.Core.Abstractions;
+using ChoirManager.Core.Abstractions.CoreEntities;
 
 namespace ChoirManager.Core.CoreEntities;
 

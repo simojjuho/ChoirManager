@@ -1,4 +1,4 @@
-namespace ChoirManager.Core.Abstractions;
+namespace ChoirManager.Core.Abstractions.CoreEntities;
 
 public interface IChoir : IWithId
 {
