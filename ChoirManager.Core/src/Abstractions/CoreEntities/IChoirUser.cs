@@ -1,6 +1,6 @@
 using ChoirManager.Core.Enums;
 
-namespace ChoirManager.Core.Abstractions;
+namespace ChoirManager.Core.Abstractions.CoreEntities;
 
 public interface IChoirUser : ITimeProps
 {
@@ -8,4 +8,6 @@ public interface IChoirUser : ITimeProps
     Guid UserId { get; set; }
     MembershipStatus MembershipStatus { get; set; }
     UserRole UserRole { get; set; }
+    VoiceRegisterThree RegisterThreeFold { get; set; }
+    VoiceRegisterFour RegisterFourFold { get; set; }
 }
