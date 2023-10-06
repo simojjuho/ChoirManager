@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "H2aen3ue/aTeQ6Ky4gZrPj7jR2f2hi/BA2YhgeU9R2gPvOvqKwE9wZ3ZHDy/yxXtnqyqXeF178Inum/eJ6vqgQ==",
+  "dgSpecHash": "GXVe4LYCY9HH3eJ2rv/g99fjwHYE082zv3sUkUTduEXzOqD7FNJv7GwcqUgTkP7/ecXtIKnbq9f/8GpUBgnOEw==",
   "success": true,
   "projectFilePath": "/home/juho/Koodaus/ChorManager/ChoirManager.Controllers/ChoirManager.Controllers.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/juho/.nuget/packages/sonaranalyzer.csharp/9.11.0.78383/sonaranalyzer.csharp.9.11.0.78383.nupkg.sha512"
+  ],
   "logs": []
 }

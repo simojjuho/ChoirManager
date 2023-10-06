@@ -42,6 +42,11 @@
               "target": "Package",
               "version": "[7.0.10, )"
             },
+            "SonarAnalyzer.CSharp": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.11.0.78383, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.5.0, )"

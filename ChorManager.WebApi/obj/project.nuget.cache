@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "zxKo2Ii3/a6bzOYrPBqfFuMFQv66BHmM1o8LgAwtt0Qw0yl85701cWrBK4gDXkcmQVNKoFMOZKdQgu6cUCwWcA==",
+  "dgSpecHash": "wvOuvmk4zCTS4M6w7jMkVbafrSv3vFHd9I7AXgDHH7BxnLgw9XEW6zZSVPrAXNbUNXKI+eT2YQbXpVoZDl0WGQ==",
   "success": true,
   "projectFilePath": "/home/juho/Koodaus/ChorManager/ChorManager.WebApi/ChorManager.WebApi.csproj",
   "expectedPackageFiles": [
     "/home/juho/.nuget/packages/microsoft.aspnetcore.openapi/7.0.10/microsoft.aspnetcore.openapi.7.0.10.nupkg.sha512",
     "/home/juho/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "/home/juho/.nuget/packages/microsoft.openapi/1.4.3/microsoft.openapi.1.4.3.nupkg.sha512",
+    "/home/juho/.nuget/packages/sonaranalyzer.csharp/9.11.0.78383/sonaranalyzer.csharp.9.11.0.78383.nupkg.sha512",
     "/home/juho/.nuget/packages/swashbuckle.aspnetcore/6.5.0/swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "/home/juho/.nuget/packages/swashbuckle.aspnetcore.swagger/6.5.0/swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "/home/juho/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.5.0/swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
