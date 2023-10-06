@@ -1,3 +1,7 @@
+# Linting is still on the to do list, as it's not working properly. 
+# And it also needs to be implemented in the pipeline.
+
+
 [*.cs]
 csharp_style_var_for_built_in_types=true:silent
 csharp_style_var_when_type_is_apparent=true:silent
