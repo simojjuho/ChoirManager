@@ -1,6 +1,6 @@
 using ChoirManager.Core.Enums;
 
-namespace ChoirManager.Core.Abstractions;
+namespace ChoirManager.Core.Abstractions.CoreEntities;
 
 public interface IUser : IWithId
 {

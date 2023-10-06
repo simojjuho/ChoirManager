@@ -1,4 +1,5 @@
 using ChoirManager.Core.Abstractions;
+using ChoirManager.Core.Abstractions.CoreEntities;
 using ChoirManager.Core.Enums;
 
 namespace ChoirManager.Core.CoreEntities;
