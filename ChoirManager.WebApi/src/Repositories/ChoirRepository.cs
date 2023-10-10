@@ -6,27 +6,32 @@ namespace ChoirManager.WebApi.Repositories;
 
 public class ChoirRepository : IChoirRepository
 {
-    public IChoir GetAll(IQueryOptions queryOptions)
+    public async Task<IChoir> GetAllAsync(IQueryOptions queryOptions)
     {
         throw new NotImplementedException();
     }
 
-    public IChoir GetOneById(Guid id)
+    public async Task<IChoir> GetOneAsync(string altKey)
     {
         throw new NotImplementedException();
     }
 
-    public IChoir CreateOne(IChoir entity)
+    public async Task<IChoir> GetOneByIdAsync(Guid id)
     {
         throw new NotImplementedException();
     }
 
-    public IChoir Update(IChoir entity)
+    public async Task<IChoir> CreateOneAsync(IChoir entity)
     {
         throw new NotImplementedException();
     }
 
-    public IChoir Remove(IChoir entity)
+    public async Task<IChoir> UpdateAsync(IChoir entity)
+    {
+        throw new NotImplementedException();
+    }
+
+    public async Task<IChoir> RemoveAsync(IChoir entity)
     {
         throw new NotImplementedException();
     }

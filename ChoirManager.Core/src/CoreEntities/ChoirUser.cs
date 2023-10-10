@@ -1,3 +1,4 @@
+using System;
 using ChoirManager.Core.Abstractions.CoreEntities;
 using ChoirManager.Core.Enums;
 
@@ -6,7 +7,9 @@ namespace ChoirManager.Core.CoreEntities;
 public class ChoirUser : IChoirUser
 {
     public Guid ChoirId { get; set; }
+    public IChoir Choir { get; set; }
     public Guid UserId { get; set; }
+    public IUser User { get; set; }
     public MembershipStatus MembershipStatus { get; set; }
     public UserRole UserRole { get; set; }
     public VoiceRegisterThree RegisterThreeFold { get; set; }

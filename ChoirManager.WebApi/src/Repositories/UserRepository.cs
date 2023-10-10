@@ -26,7 +26,7 @@ public class UserRepository : IUserRepository
         throw new NotImplementedException();
     }
 
-    public IChoir Remove(IChoir entity)
+    public Task<IChoir> RemoveAsync(IChoir entity)
     {
         throw new NotImplementedException();
     }
