@@ -1,6 +1,7 @@
 using ChoirManager.Core.Abstractions.Repositories;
 using ChoirManager.WebApi.Database;
 using ChoirManager.WebApi.Repositories;
+using ChoirManger.Business.DTOs;
 using ChorManager.WebApi.Repositories;
 
 namespace ChoirManager.WebApi;
@@ -19,6 +20,7 @@ public static class Program
         builder.Services.AddChoirDependencies();
 
         builder.Services.AddControllers();
+        builder.Services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
