@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChorManager.WebApi", "ChorManager.WebApi\ChorManager.WebApi.csproj", "{1A46D266-6B47-45C0-ABA7-AB73CF042153}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChoirManager.WebApi", "ChoirManager.WebApi\ChoirManager.WebApi.csproj", "{1A46D266-6B47-45C0-ABA7-AB73CF042153}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChoirManager.Core", "ChoirManager.Core\ChoirManager.Core.csproj", "{5C00F77B-87AC-4D6B-97C5-B5306D1A39E8}"
 EndProject
