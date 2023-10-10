@@ -1,7 +1,6 @@
 using ChoirManager.Core.Abstractions.Repositories;
 using ChoirManager.WebApi.Database;
 using ChoirManager.WebApi.Repositories;
-using ChorManager.WebApi.Repositories;
 
 namespace ChoirManager.WebApi;
 

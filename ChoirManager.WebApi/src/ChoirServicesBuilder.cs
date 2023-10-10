@@ -1,6 +1,5 @@
 using ChoirManager.Core.Abstractions.Repositories;
 using ChoirManager.WebApi.Repositories;
-using ChorManager.WebApi.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace ChoirManager.WebApi;

@@ -2,7 +2,7 @@ using ChoirManager.Core.Abstractions.CoreEntities;
 using ChoirManager.Core.Abstractions.QueryOptions;
 using ChoirManager.Core.Abstractions.Repositories;
 
-namespace ChorManager.WebApi.Repositories;
+namespace ChoirManager.WebApi.Repositories;
 
 public class UserRepository : IUserRepository
 {
