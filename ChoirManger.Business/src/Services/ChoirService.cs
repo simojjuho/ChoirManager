@@ -23,14 +23,15 @@ public class ChoirService : IChoirService
         return _mapper.Map<ChoirGetDto>(await _choirRepository.GetOneAsync(altKey));
     }
 
-    public Task<List<ChoirGetDto>> GetManyAsync(IQueryOptions queryOptions)
+    public async Task<List<ChoirGetDto>> GetManyAsync(IQueryOptions queryOptions)
     {
-        throw new NotImplementedException();
+        return _mapper.Map<List<ChoirGetDto>>(await _choirRepository.GetAllAsync(queryOptions));
     }
 
-    public Task<ChoirGetDto> CreateOneAsync(ChoirCreateDto createDto)
+    public async Task<ChoirGetDto> CreateOneAsync(ChoirCreateDto createDto)
     {
-        throw new NotImplementedException();
+        var choirEntity = _mapper.Map<Choir>(createDto);
+        return _mapper.Map<ChoirGetDto>(await _choirRepository.CreateOneAsync(choirEntity));
     }
 
     public Task<ChoirGetDto> UpdateOneAsync(ChoirUpdateDto updateDto)
