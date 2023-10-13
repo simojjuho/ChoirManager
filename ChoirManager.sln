@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChoirManger.Business", "Cho
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChoirManager.Controllers", "ChoirManager.Controllers\ChoirManager.Controllers.csproj", "{EFBDF07F-7CE4-46AF-AC40-86307713E1C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChoirManager.Test", "ChoirManager.Test\ChoirManager.Test.csproj", "{20ED7A2C-14A5-4E6D-9B11-E87865E08984}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,10 @@ Global
 		{EFBDF07F-7CE4-46AF-AC40-86307713E1C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFBDF07F-7CE4-46AF-AC40-86307713E1C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFBDF07F-7CE4-46AF-AC40-86307713E1C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20ED7A2C-14A5-4E6D-9B11-E87865E08984}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20ED7A2C-14A5-4E6D-9B11-E87865E08984}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20ED7A2C-14A5-4E6D-9B11-E87865E08984}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20ED7A2C-14A5-4E6D-9B11-E87865E08984}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
