@@ -4,6 +4,7 @@ using ChoirManager.Core.Abstractions.Repositories;
 using ChoirManager.Core.CoreEntities;
 using ChoirManger.Business.Abstractions;
 using ChoirManger.Business.DTOs.ChoirDtos;
+using ChoirManger.Business.Shared;
 
 namespace ChoirManger.Business.Services;
 
@@ -23,7 +24,7 @@ public class ChoirService : IChoirService
         return _mapper.Map<ChoirGetDto>(await _choirRepository.GetOneAsync(altKey));
     }
 
-    public async Task<List<ChoirGetDto>> GetManyAsync(IQueryOptions queryOptions)
+    public async Task<List<ChoirGetDto>> GetManyAsync(IChoirQueryOptions queryOptions)
     {
         return _mapper.Map<List<ChoirGetDto>>(await _choirRepository.GetAllAsync(queryOptions));
     }
@@ -34,13 +35,18 @@ public class ChoirService : IChoirService
         return _mapper.Map<ChoirGetDto>(await _choirRepository.CreateOneAsync(choirEntity));
     }
 
-    public Task<ChoirGetDto> UpdateOneAsync(ChoirUpdateDto updateDto)
+    public async Task<ChoirGetDto> UpdateOneAsync(ChoirUpdateDto updateDto)
     {
-        throw new NotImplementedException();
+        var updateEntity = _mapper.Map<Choir>(updateDto);
+        var original = await _choirRepository.GetOneAsync(updateEntity.Name);
+        EntityHelper<Choir>.CheckNullValues(original, updateEntity);
+        EntityHelper<Choir>.ReplaceProperyValues(original, updateEntity);
+        return _mapper.Map<ChoirGetDto>(await _choirRepository.UpdateAsync(original));
     }
 
-    public Task<bool> RemoveOne(string altKey)
+    public async Task<bool> RemoveOne(string altKey)
     {
-        throw new NotImplementedException();
+        var entity = await _choirRepository.GetOneAsync(altKey);
+        return await _choirRepository.RemoveAsync(entity);
     }
 }
