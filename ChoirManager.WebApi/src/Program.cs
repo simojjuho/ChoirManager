@@ -3,6 +3,7 @@ using ChoirManager.WebApi.Database;
 using ChoirManager.WebApi.Repositories;
 using ChoirManager.Business.DTOs;
 
+
 namespace ChoirManager.WebApi;
 
 public static class Program
