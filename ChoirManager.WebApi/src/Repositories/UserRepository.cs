@@ -1,32 +1,37 @@
-using ChoirManager.Core.Abstractions.CoreEntities;
 using ChoirManager.Core.Abstractions.QueryOptions;
 using ChoirManager.Core.Abstractions.Repositories;
+using ChoirManager.Core.CoreEntities;
 
 namespace ChoirManager.WebApi.Repositories;
 
 public class UserRepository : IUserRepository
 {
-    public IChoir GetAll(IQueryOptions queryOptions)
+    public Task<Choir[]> GetAllAsync(IChoirQueryOptions queryOptions)
     {
         throw new NotImplementedException();
     }
 
-    public IChoir GetOneById(Guid id)
+    public Task<Choir?> GetOneAsync(string altKey)
     {
         throw new NotImplementedException();
     }
 
-    public IChoir CreateOne(IChoir entity)
+    public Task<Choir> GetOneByIdAsync(Guid id)
     {
         throw new NotImplementedException();
     }
 
-    public IChoir Update(IChoir entity)
+    public Task<Choir> CreateOneAsync(Choir entity)
     {
         throw new NotImplementedException();
     }
 
-    public IChoir Remove(IChoir entity)
+    public Task<Choir> UpdateAsync(Choir entity)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<bool> RemoveAsync(Choir entity)
     {
         throw new NotImplementedException();
     }

@@ -8,5 +8,5 @@ public class ChoirQueryOptions : IChoirQueryOptions
     public int Page { get; set; }
     public int PerPage { get; set; }
     public string Filter { get; set; }
-    public bool GroupDesc { get; set; }
+    public bool OrderDesc { get; set; }
 }

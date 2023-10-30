@@ -33,6 +33,8 @@ public class DatabaseContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<User>()
-            .HasAlternateKey(key => key.Email);
+            .HasAlternateKey(property => property.Email);
+        modelBuilder.Entity<Choir>()
+            .HasAlternateKey(property => property.Name);
     }
 }

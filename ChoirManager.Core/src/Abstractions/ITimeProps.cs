@@ -1,3 +1,5 @@
+using System;
+
 namespace ChoirManager.Core.Abstractions;
 
 public interface ITimeProps
