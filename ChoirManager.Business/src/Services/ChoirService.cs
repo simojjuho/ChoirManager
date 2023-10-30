@@ -37,10 +37,11 @@ public class ChoirService : IChoirService
         return _mapper.Map<ChoirGetDto>(await _choirRepository.CreateOneAsync(choirEntity));
     }
 
-    public async Task<ChoirGetDto> UpdateOneAsync(ChoirUpdateDto updateDto)
+    public async Task<ChoirGetDto> UpdateOneAsync(ChoirUpdateDto updateDto, string altKey)
     {
         var updateEntity = _mapper.Map<Choir>(updateDto);
-        var original = await _choirRepository.GetOneAsync(updateEntity.Name);
+        var original = await _choirRepository.GetOneAsync(altKey);
+        updateEntity.Id = original.Id;
         EntityHelper<Choir>.CheckNullValues(original, updateEntity);
         EntityHelper<Choir>.ReplaceProperyValues(original, updateEntity);
         return _mapper.Map<ChoirGetDto>(await _choirRepository.UpdateAsync(original));

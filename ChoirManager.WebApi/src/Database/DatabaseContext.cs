@@ -1,10 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using Npgsql;
-
-namespace ChoirManager.WebApi.Database;
+using Microsoft.EntityFrameworkCore.ValueGeneration;
 using ChoirManager.Core.CoreEntities;
 
+namespace ChoirManager.WebApi.Database;
 
 public class DatabaseContext : DbContext
 {
@@ -21,20 +20,37 @@ public class DatabaseContext : DbContext
         _configuration = configuration;
         _interceptors = interceptors;
     }
+    
+    static DatabaseContext()
+    {
+        AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
+    }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (_interceptors.Any())
         {
-            optionsBuilder.AddInterceptors(_interceptors);
+            optionsBuilder
+                .AddInterceptors(_interceptors);
         }
+        optionsBuilder.UseNpgsql(_configuration.GetConnectionString("DefaultConnection")).UseSnakeCaseNamingConvention();
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<User>()
-            .HasAlternateKey(property => property.Email);
+            .HasIndex(property => property.Email);
         modelBuilder.Entity<Choir>()
-            .HasAlternateKey(property => property.Name);
+            .HasIndex(property => property.Name);
+        foreach (var entity in modelBuilder.Model.GetEntityTypes())
+        {
+            foreach (var property in entity.GetProperties())
+            {
+                if (property.ClrType == typeof(Guid) && property.Name == "Id")
+                {
+                    property.SetValueGeneratorFactory((_, __) => new SequentialGuidValueGenerator());
+                }
+            }
+        }
     }
 }
