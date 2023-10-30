@@ -16,7 +16,7 @@ public class ChoirRepository : RepositoryProps<Choir>, IChoirRepository
     
     public async Task<Choir[]> GetAllAsync(IChoirQueryOptions queryOptions)
     {
-        var choirs = _dbSet.Where(property => property.Name.Contains(queryOptions.Filter));
+        var choirs = _dbSet.Where(property => property.Name.ToLower().Contains(queryOptions.Filter.ToLower()));
         if (queryOptions.OrderDesc)
         {
             return await choirs
@@ -34,7 +34,7 @@ public class ChoirRepository : RepositoryProps<Choir>, IChoirRepository
 
     public async Task<Choir?> GetOneAsync(string altKey)
     {
-        var entity = await _dbSet.FirstOrDefaultAsync(prop => prop.Name.ToLower().Contains(altKey.ToLower()));
+        var entity = await _dbSet.FirstOrDefaultAsync(prop => prop.Name.ToLower() == altKey.ToLower());
         if (entity is null)
         {
             throw CustomException.NotFoundException("Choir does not exist");

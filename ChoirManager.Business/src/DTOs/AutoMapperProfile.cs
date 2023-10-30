@@ -9,5 +9,7 @@ public class AutoMapperProfile : Profile
     public AutoMapperProfile()
     {
         CreateMap<Choir, ChoirGetDto>();
+        CreateMap<ChoirCreateDto, Choir>();
+        CreateMap<ChoirUpdateDto, Choir>();
     }
 }
