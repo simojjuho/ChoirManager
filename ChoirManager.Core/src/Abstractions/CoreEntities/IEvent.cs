@@ -1,3 +1,4 @@
+using System;
 using ChoirManager.Core.Enums;
 
 namespace ChoirManager.Core.Abstractions.CoreEntities;
