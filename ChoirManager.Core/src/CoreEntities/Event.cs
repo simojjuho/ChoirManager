@@ -16,6 +16,6 @@ public class Event : IEvent
     public DateTime StartingTime { get; set; }
     public DateTime? EndingTime { get; set; }
     public string? Description { get; set; }
-    public DateTimeOffset CreatedAt { get; set; }
-    public DateTimeOffset UpdatedAt { get; set; }
+    public DateTimeOffset CreatedAt { get; set; } = DateTimeOffset.Now.ToUniversalTime();
+    public DateTimeOffset UpdatedAt { get; set; } = DateTimeOffset.Now.ToUniversalTime();
 }

@@ -21,6 +21,6 @@ public class ChoirUser : IChoirUser
     public UserRole UserRole { get; set; }
     public VoiceRegisterThree RegisterThreeFold { get; set; }
     public VoiceRegisterFour RegisterFourFold { get; set; }
-    public DateTimeOffset CreatedAt { get; set; }
-    public DateTimeOffset UpdatedAt { get; set; }
+    public DateTimeOffset CreatedAt { get; set; } = DateTimeOffset.Now.ToUniversalTime();
+    public DateTimeOffset UpdatedAt { get; set; } = DateTimeOffset.Now.ToUniversalTime();
 }

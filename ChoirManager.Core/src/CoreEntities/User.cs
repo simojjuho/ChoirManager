@@ -16,6 +16,6 @@ public class User : IUser
     [NotMapped]
     public List<ChoirUser> ChoirUsers { get; set; }
     public string? VerificationToken { get; set; }
-    public DateTimeOffset CreatedAt { get; set; }
-    public DateTimeOffset UpdatedAt { get; set; }
+    public DateTimeOffset CreatedAt { get; set; } = DateTimeOffset.Now.ToUniversalTime();
+    public DateTimeOffset UpdatedAt { get; set; } = DateTimeOffset.Now.ToUniversalTime();
 }

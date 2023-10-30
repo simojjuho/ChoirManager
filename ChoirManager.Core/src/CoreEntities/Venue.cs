@@ -11,6 +11,6 @@ public class Venue : IVenue
     public string Town { get; set; }
     public string ContactName { get; set; }
     public string ContactPhoneNumber { get; set; }
-    public DateTimeOffset CreatedAt { get; set; }
-    public DateTimeOffset UpdatedAt { get; set; }
+    public DateTimeOffset CreatedAt { get; set; } = DateTimeOffset.Now.ToUniversalTime();
+    public DateTimeOffset UpdatedAt { get; set; } = DateTimeOffset.Now.ToUniversalTime();
 }
