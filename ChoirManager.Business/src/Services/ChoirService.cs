@@ -1,12 +1,13 @@
 using AutoMapper;
+using ChoirManager.Business.Abstractions;
+using ChoirManager.Business.DTOs.ChoirDtos;
+using ChoirManager.Business.Shared;
 using ChoirManager.Core.Abstractions.QueryOptions;
 using ChoirManager.Core.Abstractions.Repositories;
 using ChoirManager.Core.CoreEntities;
-using ChoirManger.Business.Abstractions;
-using ChoirManger.Business.DTOs.ChoirDtos;
-using ChoirManger.Business.Shared;
+using ChoirManager.Core.QueryOptions;
 
-namespace ChoirManger.Business.Services;
+namespace ChoirManager.Business.Services;
 
 public class ChoirService : IChoirService
 {
@@ -24,9 +25,10 @@ public class ChoirService : IChoirService
         return _mapper.Map<ChoirGetDto>(await _choirRepository.GetOneAsync(altKey));
     }
 
-    public async Task<List<ChoirGetDto>> GetManyAsync(IChoirQueryOptions queryOptions)
+    public async Task<ChoirGetDto[]> GetManyAsync(IQueryOptions queryOptions)
     {
-        return _mapper.Map<List<ChoirGetDto>>(await _choirRepository.GetAllAsync(queryOptions));
+        var choirQueryOptions = (ChoirQueryOptions)queryOptions;
+        return _mapper.Map<ChoirGetDto[]>(await _choirRepository.GetAllAsync(choirQueryOptions));
     }
 
     public async Task<ChoirGetDto> CreateOneAsync(ChoirCreateDto createDto)

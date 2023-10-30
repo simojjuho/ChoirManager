@@ -3,7 +3,7 @@ using ChoirManager.Core.Abstractions.QueryOptions;
 using ChoirManager.Core.Abstractions.Repositories;
 using ChoirManager.Core.CoreEntities;
 using ChoirManager.WebApi.Database;
-using ChoirManger.Business.Shared;
+using ChoirManager.Business.Shared;
 using Microsoft.EntityFrameworkCore;
 
 namespace ChoirManager.WebApi.Repositories;

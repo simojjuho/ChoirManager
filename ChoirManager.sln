@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChoirManager.WebApi", "Choi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChoirManager.Core", "ChoirManager.Core\ChoirManager.Core.csproj", "{5C00F77B-87AC-4D6B-97C5-B5306D1A39E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChoirManger.Business", "ChoirManger.Business\ChoirManger.Business.csproj", "{0910A60C-D5D2-4858-AFA4-8394258E23DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChoirManager.Business", "ChoirManager.Business\ChoirManager.Business.csproj", "{0910A60C-D5D2-4858-AFA4-8394258E23DC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChoirManager.Controllers", "ChoirManager.Controllers\ChoirManager.Controllers.csproj", "{EFBDF07F-7CE4-46AF-AC40-86307713E1C6}"
 EndProject

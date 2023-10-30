@@ -1,7 +1,7 @@
 using ChoirManager.Core.Abstractions.CoreEntities;
 using ChoirManager.Core.Enums;
 
-namespace ChoirManger.Business.DTOs.ChoirUserDtos;
+namespace ChoirManager.Business.DTOs.ChoirUserDtos;
 
 public class ChoirUserGetDto
 {

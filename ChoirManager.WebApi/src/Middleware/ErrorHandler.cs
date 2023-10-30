@@ -1,4 +1,4 @@
-using ChoirManger.Business.Shared;
+using ChoirManager.Business.Shared;
 using Microsoft.EntityFrameworkCore;
 
 namespace ChoirManager.WebApi.Middleware;

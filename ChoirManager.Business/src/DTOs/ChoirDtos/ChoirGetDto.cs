@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
+using ChoirManager.Business.DTOs.ChoirUserDtos;
 using ChoirManager.Core.CoreEntities;
-using ChoirManger.Business.DTOs.ChoirUserDtos;
 
-namespace ChoirManger.Business.DTOs.ChoirDtos;
+namespace ChoirManager.Business.DTOs.ChoirDtos;
 
 public class ChoirGetDto
 {

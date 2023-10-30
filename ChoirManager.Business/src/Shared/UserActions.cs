@@ -1,7 +1,7 @@
 using System.Text.RegularExpressions;
 using ChoirManager.Core.CoreEntities;
 
-namespace ChoirManger.Business.Shared;
+namespace ChoirManager.Business.Shared;
 
 public class UserActions
 {

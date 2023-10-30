@@ -1,8 +1,7 @@
 using ChoirManager.Core.Abstractions.Repositories;
 using ChoirManager.WebApi.Database;
 using ChoirManager.WebApi.Repositories;
-using ChoirManger.Business.DTOs;
-using ChorManager.WebApi.Repositories;
+using ChoirManager.Business.DTOs;
 
 namespace ChoirManager.WebApi;
 
@@ -24,6 +23,9 @@ public static class Program
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+        builder.Services.Configure<RouteOptions>(options => 
+            options.LowercaseUrls = true
+        );
 
         var app = builder.Build();
 

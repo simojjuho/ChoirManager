@@ -1,8 +1,8 @@
 using AutoMapper;
+using ChoirManager.Business.DTOs.ChoirDtos;
 using ChoirManager.Core.CoreEntities;
-using ChoirManger.Business.DTOs.ChoirDtos;
 
-namespace ChoirManger.Business.DTOs;
+namespace ChoirManager.Business.DTOs;
 
 public class AutoMapperProfile : Profile
 {

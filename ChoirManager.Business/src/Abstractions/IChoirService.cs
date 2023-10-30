@@ -1,7 +1,7 @@
+using ChoirManager.Business.DTOs.ChoirDtos;
 using ChoirManager.Core.CoreEntities;
-using ChoirManger.Business.DTOs.ChoirDtos;
 
-namespace ChoirManger.Business.Abstractions;
+namespace ChoirManager.Business.Abstractions;
 
 public interface IChoirService : IBaseService<ChoirGetDto, ChoirCreateDto, ChoirUpdateDto>
 {

@@ -1,4 +1,4 @@
-namespace ChoirManger.Business.Shared;
+namespace ChoirManager.Business.Shared;
 
 public static class EntityHelper<T>
 {

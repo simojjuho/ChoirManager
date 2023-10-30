@@ -1,4 +1,4 @@
-namespace ChoirManger.Business.DTOs.ChoirDtos;
+namespace ChoirManager.Business.DTOs.ChoirDtos;
 
 public class ChoirUpdateDto
 {

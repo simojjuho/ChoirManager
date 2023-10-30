@@ -29,7 +29,7 @@
     <ItemGroup>
       <ProjectReference Include="..\ChoirManager.Controllers\ChoirManager.Controllers.csproj" />
       <ProjectReference Include="..\ChoirManager.Core\ChoirManager.Core.csproj" />
-      <ProjectReference Include="..\ChoirManger.Business\ChoirManger.Business.csproj" />
+      <ProjectReference Include="..\ChoirManager.Business\ChoirManager.Business.csproj" />
     </ItemGroup>
 
 </Project>
