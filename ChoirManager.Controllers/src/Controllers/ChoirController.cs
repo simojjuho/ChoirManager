@@ -3,13 +3,14 @@ using Microsoft.AspNetCore.Mvc;
 
 using ChoirManager.Business.Abstractions;
 using ChoirManager.Business.DTOs.ChoirDtos;
+using ChoirManager.Controllers.Abstractions;
 using ChoirManager.Core.Abstractions.QueryOptions;
 
 namespace ChoirManager.Controllers.Controllers;
 
 [ApiController]
 [Route("api/v1/[controller]s")]
-public class ChoirController : BaseController<ChoirGetDto, ChoirCreateDto, ChoirUpdateDto>
+public class ChoirController : ControllerProperties<ChoirGetDto, ChoirCreateDto, ChoirUpdateDto>, IChoirController
 {
     public ChoirController(IBaseService<ChoirGetDto, ChoirCreateDto, ChoirUpdateDto> service) : base(service)
     {
