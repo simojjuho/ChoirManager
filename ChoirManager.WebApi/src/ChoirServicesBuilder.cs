@@ -16,7 +16,8 @@ public static class ChoirServicesBuilder
             .AddScoped<IChoirService, ChoirService>()
             .AddScoped<IChoirController, ChoirController>()
             .AddScoped<IUserRepository, UserRepository>()
-            ;
+            .AddScoped<IUserService, UserService>()
+            .AddScoped<IUserController, UserController>();
 
         return services;
     }
