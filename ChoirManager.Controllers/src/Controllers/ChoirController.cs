@@ -25,7 +25,7 @@ public class ChoirController : ControllerProperties<ChoirGetDto, ChoirCreateDto,
     }
 
     [HttpGet("{altKey}")]
-    public async Task<ActionResult<ChoirGetDto>> GetOneAsync(string altKey)
+    public async Task<ActionResult<ChoirGetDto>> GetOneAsync([FromRoute]string altKey)
     {
         return await _service.GetOneAsync(altKey);
     }

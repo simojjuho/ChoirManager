@@ -15,16 +15,13 @@ public class UserRepository : RepositoryProps<User>, IUserRepository
     
     public async Task<User[]> GetAllAsync(IQueryOptions queryOptions)
     {
-        var users = _dbSet
+        var users = queryOptions.OrderDesc
+            ? _dbSet.OrderByDescending(props => props.Name)
+            : _dbSet.OrderBy(props => props.Name);
+        
+        return await users
             .Skip((queryOptions.Page - 1) * queryOptions.PerPage)
-            .Take(queryOptions.PerPage);
-        if (queryOptions.OrderDesc)
-        {
-         return await users.OrderByDescending(props => props.Name)
-             .ToArrayAsync();
-        }
-
-        return await users.OrderBy(props => props.Name)
+            .Take(queryOptions.PerPage)
             .ToArrayAsync();
     }
 

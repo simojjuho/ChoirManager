@@ -1,6 +1,8 @@
 using AutoMapper;
 using ChoirManager.Business.Abstractions;
+using ChoirManager.Business.DTOs.ChoirDtos;
 using ChoirManager.Business.DTOs.UserDtos;
+using ChoirManager.Business.Shared;
 using ChoirManager.Core.Abstractions.QueryOptions;
 using ChoirManager.Core.Abstractions.Repositories;
 using ChoirManager.Core.CoreEntities;
@@ -31,13 +33,19 @@ public class UserService : ServiceProps<User>, IUserService
         return _mapper.Map<UserGetDto>(await _repository.CreateOneAsync(newUser));
     }
 
-    public Task<UserGetDto> UpdateOneAsync(UserUpdateDto updateDto, string altKey)
+    public async Task<UserGetDto> UpdateOneAsync(UserUpdateDto updateDto, string altKey)
     {
-        
+        var updateEntity = _mapper.Map<User>(updateDto);
+        var original = await _repository.GetOneAsync(altKey);
+        updateEntity.Id = original.Id;
+        EntityHelper<User>.CheckNullValues(original, updateEntity);
+        EntityHelper<User>.ReplaceProperyValues(original, updateEntity);
+        return _mapper.Map<UserGetDto>(await _repository.UpdateAsync(original));
     }
 
-    public Task<bool> RemoveOne(string altKey)
+    public async Task<bool> RemoveOne(string altKey)
     {
-        throw new NotImplementedException();
+        var entity = await _repository.GetOneAsync(altKey);
+        return await _repository.RemoveAsync(entity);
     }
 }
