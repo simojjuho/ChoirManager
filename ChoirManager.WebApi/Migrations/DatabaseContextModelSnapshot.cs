@@ -74,24 +74,28 @@ namespace ChoirManager.WebApi.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("created_at");
 
-                    b.Property<int>("MembershipStatus")
-                        .HasColumnType("integer")
+                    b.Property<string>("MembershipStatus")
+                        .IsRequired()
+                        .HasColumnType("text")
                         .HasColumnName("membership_status");
 
-                    b.Property<int>("RegisterFourFold")
-                        .HasColumnType("integer")
+                    b.Property<string>("RegisterFourFold")
+                        .IsRequired()
+                        .HasColumnType("text")
                         .HasColumnName("register_four_fold");
 
-                    b.Property<int>("RegisterThreeFold")
-                        .HasColumnType("integer")
+                    b.Property<string>("RegisterThreeFold")
+                        .IsRequired()
+                        .HasColumnType("text")
                         .HasColumnName("register_three_fold");
 
                     b.Property<DateTimeOffset>("UpdatedAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("updated_at");
 
-                    b.Property<int>("UserRole")
-                        .HasColumnType("integer")
+                    b.Property<string>("UserRole")
+                        .IsRequired()
+                        .HasColumnType("text")
                         .HasColumnName("user_role");
 
                     b.HasKey("ChoirId", "UserId")
@@ -123,8 +127,9 @@ namespace ChoirManager.WebApi.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("ending_time");
 
-                    b.Property<int>("EventType")
-                        .HasColumnType("integer")
+                    b.Property<string>("EventType")
+                        .IsRequired()
+                        .HasColumnType("text")
                         .HasColumnName("event_type");
 
                     b.Property<DateTime>("StartingTime")
@@ -175,8 +180,9 @@ namespace ChoirManager.WebApi.Migrations
                         .HasColumnType("text")
                         .HasColumnName("phone_number");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("integer")
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("text")
                         .HasColumnName("status");
 
                     b.Property<DateTimeOffset>("UpdatedAt")

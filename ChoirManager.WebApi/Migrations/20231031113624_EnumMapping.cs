@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ChoirManager.WebApi.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialDbSchema : Migration
+    public partial class EnumMapping : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,10 +17,10 @@ namespace ChoirManager.WebApi.Migrations
                 {
                     choir_id = table.Column<Guid>(type: "uuid", nullable: false),
                     user_id = table.Column<Guid>(type: "uuid", nullable: false),
-                    membership_status = table.Column<int>(type: "integer", nullable: false),
-                    user_role = table.Column<int>(type: "integer", nullable: false),
-                    register_three_fold = table.Column<int>(type: "integer", nullable: false),
-                    register_four_fold = table.Column<int>(type: "integer", nullable: false),
+                    membership_status = table.Column<string>(type: "text", nullable: false),
+                    user_role = table.Column<string>(type: "text", nullable: false),
+                    register_three_fold = table.Column<string>(type: "text", nullable: false),
+                    register_four_fold = table.Column<string>(type: "text", nullable: false),
                     created_at = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     updated_at = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false)
                 },
@@ -43,7 +43,6 @@ namespace ChoirManager.WebApi.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("pk_choirs", x => x.id);
-                    table.UniqueConstraint("Alternate_Key_Choir", x => x.name);
                 });
 
             migrationBuilder.CreateTable(
@@ -54,7 +53,7 @@ namespace ChoirManager.WebApi.Migrations
                     name = table.Column<string>(type: "text", nullable: true),
                     email = table.Column<string>(type: "text", nullable: false),
                     phone_number = table.Column<string>(type: "text", nullable: true),
-                    status = table.Column<int>(type: "integer", nullable: false),
+                    status = table.Column<string>(type: "text", nullable: false),
                     verification_token = table.Column<string>(type: "text", nullable: true),
                     created_at = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     updated_at = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false)
@@ -62,7 +61,6 @@ namespace ChoirManager.WebApi.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("pk_users", x => x.id);
-                    table.UniqueConstraint("Alternate_Key_User", x => x.email);
                 });
 
             migrationBuilder.CreateTable(
@@ -91,7 +89,7 @@ namespace ChoirManager.WebApi.Migrations
                     id = table.Column<Guid>(type: "uuid", nullable: false),
                     choir_id = table.Column<Guid>(type: "uuid", nullable: false),
                     venue_id = table.Column<Guid>(type: "uuid", nullable: false),
-                    event_type = table.Column<int>(type: "integer", nullable: false),
+                    event_type = table.Column<string>(type: "text", nullable: false),
                     starting_time = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     ending_time = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     description = table.Column<string>(type: "text", nullable: true),
@@ -116,6 +114,11 @@ namespace ChoirManager.WebApi.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "ix_choirs_name",
+                table: "choirs",
+                column: "name");
+
+            migrationBuilder.CreateIndex(
                 name: "ix_events_choir_id",
                 table: "events",
                 column: "choir_id");
@@ -124,6 +127,11 @@ namespace ChoirManager.WebApi.Migrations
                 name: "ix_events_venue_id",
                 table: "events",
                 column: "venue_id");
+
+            migrationBuilder.CreateIndex(
+                name: "ix_users_email",
+                table: "users",
+                column: "email");
         }
 
         /// <inheritdoc />
