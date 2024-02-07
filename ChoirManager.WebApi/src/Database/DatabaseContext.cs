@@ -42,6 +42,9 @@ public class DatabaseContext : DbContext
             .HasIndex(property => property.Email);
         modelBuilder.Entity<Choir>()
             .HasIndex(property => property.Name);
+        modelBuilder.Entity<ChoirUser>()
+            .HasAlternateKey(e => e.MembershipId)
+            .HasName("choir_user_membership_alt_key");
         foreach (var entity in modelBuilder.Model.GetEntityTypes())
         {
             foreach (var property in entity.GetProperties())
