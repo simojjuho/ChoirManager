@@ -43,6 +43,9 @@ public class DatabaseContext : DbContext
             .HasIndex(property => property.Email);
         modelBuilder.Entity<Choir>()
             .HasIndex(property => property.Name);
+        modelBuilder.Entity<ChoirUser>()
+            .HasAlternateKey(e => e.MembershipId)
+            .HasName("choir_user_membership_alt_key");
         modelBuilder.Entity<User>()
             .Property(e => e.Status)
             .HasConversion(
@@ -79,6 +82,7 @@ public class DatabaseContext : DbContext
                 v => v.ToString(),
                 v => (EventType)Enum.Parse(typeof(EventType), v)
             );
+
         foreach (var entity in modelBuilder.Model.GetEntityTypes())
         {
             foreach (var property in entity.GetProperties())

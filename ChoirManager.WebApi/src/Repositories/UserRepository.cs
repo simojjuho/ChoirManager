@@ -16,8 +16,8 @@ public class UserRepository : RepositoryProps<User>, IUserRepository
     public async Task<User[]> GetAllAsync(IQueryOptions queryOptions)
     {
         var users = queryOptions.OrderDesc
-            ? _dbSet.OrderByDescending(props => props.Name)
-            : _dbSet.OrderBy(props => props.Name);
+            ? _dbSet.OrderByDescending(props => props.LastName + ' ' + props.FirstName)
+            : _dbSet.OrderBy(props => props.LastName + ' ' + props.FirstName);
         
         return await users
             .Skip((queryOptions.Page - 1) * queryOptions.PerPage)
@@ -27,7 +27,7 @@ public class UserRepository : RepositoryProps<User>, IUserRepository
 
     public async Task<User?> GetOneAsync(string altKey)
     {
-        var entity = await _dbSet.FirstOrDefaultAsync(prop => prop.Name.ToLower() == altKey.ToLower());
+        var entity = await _dbSet.FirstOrDefaultAsync(prop => prop.Email.ToLower() == altKey.ToLower());
         if (entity is null)
         {
             throw CustomException.NotFoundException("User does not exist");

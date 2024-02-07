@@ -17,6 +17,7 @@ public class ChoirUser : IChoirUser
     public Guid UserId { get; set; }
     [NotMapped]
     public User User { get; set; }
+    public string MembershipId { get; set; }
     public MembershipStatus MembershipStatus { get; set; }
     public UserRole UserRole { get; set; }
     public VoiceRegisterThree RegisterThreeFold { get; set; }
