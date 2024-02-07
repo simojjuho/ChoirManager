@@ -4,4 +4,5 @@ public interface IQueryOptions
 {
     int Page { get; set; }
     int PerPage { get; set; }
+    bool OrderDesc { get; set; }
 }

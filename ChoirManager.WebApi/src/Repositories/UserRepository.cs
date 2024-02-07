@@ -1,38 +1,70 @@
+using ChoirManager.Business.Shared;
 using ChoirManager.Core.Abstractions.QueryOptions;
 using ChoirManager.Core.Abstractions.Repositories;
 using ChoirManager.Core.CoreEntities;
+using ChoirManager.WebApi.Database;
+using Microsoft.EntityFrameworkCore;
 
 namespace ChoirManager.WebApi.Repositories;
 
-public class UserRepository : IUserRepository
+public class UserRepository : RepositoryProps<User>, IUserRepository
 {
-    public Task<Choir[]> GetAllAsync(IChoirQueryOptions queryOptions)
+    public UserRepository(DatabaseContext dbContext) : base(dbContext)
     {
-        throw new NotImplementedException();
+    }
+    
+    public async Task<User[]> GetAllAsync(IQueryOptions queryOptions)
+    {
+        var users = queryOptions.OrderDesc
+            ? _dbSet.OrderByDescending(props => props.LastName + ' ' + props.FirstName)
+            : _dbSet.OrderBy(props => props.LastName + ' ' + props.FirstName);
+        
+        return await users
+            .Skip((queryOptions.Page - 1) * queryOptions.PerPage)
+            .Take(queryOptions.PerPage)
+            .ToArrayAsync();
     }
 
-    public Task<Choir?> GetOneAsync(string altKey)
+    public async Task<User?> GetOneAsync(string altKey)
     {
-        throw new NotImplementedException();
+        var entity = await _dbSet.FirstOrDefaultAsync(prop => prop.Email.ToLower() == altKey.ToLower());
+        if (entity is null)
+        {
+            throw CustomException.NotFoundException("User does not exist");
+        }
+
+        return entity;
     }
 
-    public Task<Choir> GetOneByIdAsync(Guid id)
+    public async Task<User> GetOneByIdAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var entity = await _dbSet.FindAsync(id);
+        if (entity is null)
+        {
+            throw CustomException.NotFoundException("Choir does not exist");
+        }
+
+        return entity;
     }
 
-    public Task<Choir> CreateOneAsync(Choir entity)
+    public async Task<User> CreateOneAsync(User entity)
     {
-        throw new NotImplementedException();
+        var entry = await _dbSet.AddAsync(entity);
+        await _dbContext.SaveChangesAsync();
+        return entry.Entity;
     }
 
-    public Task<Choir> UpdateAsync(Choir entity)
+    public async Task<User> UpdateAsync(User entity)
     {
-        throw new NotImplementedException();
+        var entry = _dbSet.Update(entity);
+        await _dbContext.SaveChangesAsync();
+        return entry.Entity;
     }
 
-    public Task<bool> RemoveAsync(Choir entity)
+    public async Task<bool> RemoveAsync(User entity)
     {
-        throw new NotImplementedException();
+        _dbSet.Remove(entity);
+        await _dbContext.SaveChangesAsync();
+        return true;
     }
 }

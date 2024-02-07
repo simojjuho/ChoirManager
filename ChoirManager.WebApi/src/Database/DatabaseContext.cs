@@ -1,10 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using Npgsql;
+using Microsoft.EntityFrameworkCore.ValueGeneration;
+using ChoirManager.Core.CoreEntities;
+using ChoirManager.Core.Enums;
 
 namespace ChoirManager.WebApi.Database;
-using ChoirManager.Core.CoreEntities;
-
 
 public class DatabaseContext : DbContext
 {
@@ -21,20 +21,77 @@ public class DatabaseContext : DbContext
         _configuration = configuration;
         _interceptors = interceptors;
     }
+    
+    static DatabaseContext()
+    {
+        AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
+    }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (_interceptors.Any())
         {
-            optionsBuilder.AddInterceptors(_interceptors);
+            optionsBuilder
+                .AddInterceptors(_interceptors);
         }
+        optionsBuilder.UseNpgsql(_configuration.GetConnectionString("DefaultConnection")).UseSnakeCaseNamingConvention();
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<User>()
-            .HasAlternateKey(property => property.Email);
+            .HasIndex(property => property.Email);
         modelBuilder.Entity<Choir>()
-            .HasAlternateKey(property => property.Name);
+            .HasIndex(property => property.Name);
+        modelBuilder.Entity<ChoirUser>()
+            .HasAlternateKey(e => e.MembershipId)
+            .HasName("choir_user_membership_alt_key");
+        modelBuilder.Entity<User>()
+            .Property(e => e.Status)
+            .HasConversion(
+                v => v.ToString(),
+                v => (ProfileStatus)Enum.Parse(typeof(ProfileStatus), v)
+                );
+        modelBuilder.Entity<ChoirUser>()
+            .Property(e => e.UserRole)
+            .HasConversion(
+                v => v.ToString(),
+                v => (UserRole)Enum.Parse(typeof(UserRole), v)
+            );
+        modelBuilder.Entity<ChoirUser>()
+            .Property(e => e.MembershipStatus)
+            .HasConversion(
+                v => v.ToString(),
+                v => (MembershipStatus)Enum.Parse(typeof(MembershipStatus), v)
+            );
+        modelBuilder.Entity<ChoirUser>()
+            .Property(e => e.RegisterThreeFold)
+            .HasConversion(
+                v => v.ToString(),
+                v => (VoiceRegisterThree)Enum.Parse(typeof(VoiceRegisterThree), v)
+            );
+        modelBuilder.Entity<ChoirUser>()
+            .Property(e => e.RegisterFourFold)
+            .HasConversion(
+                v => v.ToString(),
+                v => (VoiceRegisterFour)Enum.Parse(typeof(VoiceRegisterFour), v)
+            );
+        modelBuilder.Entity<Event>()
+            .Property(e => e.EventType)
+            .HasConversion(
+                v => v.ToString(),
+                v => (EventType)Enum.Parse(typeof(EventType), v)
+            );
+
+        foreach (var entity in modelBuilder.Model.GetEntityTypes())
+        {
+            foreach (var property in entity.GetProperties())
+            {
+                if (property.ClrType == typeof(Guid) && property.Name == "Id")
+                {
+                    property.SetValueGeneratorFactory((_, __) => new SequentialGuidValueGenerator());
+                }
+            }
+        }
     }
 }

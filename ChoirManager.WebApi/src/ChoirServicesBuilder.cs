@@ -1,6 +1,9 @@
+using ChoirManager.Business.Abstractions;
+using ChoirManager.Business.Services;
+using ChoirManager.Controllers.Abstractions;
+using ChoirManager.Controllers.Controllers;
 using ChoirManager.Core.Abstractions.Repositories;
 using ChoirManager.WebApi.Repositories;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace ChoirManager.WebApi;
 
@@ -10,7 +13,11 @@ public static class ChoirServicesBuilder
     {
         services
             .AddScoped<IChoirRepository, ChoirRepository>()
-            .AddScoped<IUserRepository, UserRepository>();
+            .AddScoped<IChoirService, ChoirService>()
+            .AddScoped<IChoirController, ChoirController>()
+            .AddScoped<IUserRepository, UserRepository>()
+            .AddScoped<IUserService, UserService>()
+            .AddScoped<IUserController, UserController>();
 
         return services;
     }
