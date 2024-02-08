@@ -21,6 +21,7 @@ jobs:
       - name: Display .NET version
         run: dotnet --version
   qodana:
+    needs: build
     runs-on: ubuntu-latest
 #    permissions:
 #      contents: write
