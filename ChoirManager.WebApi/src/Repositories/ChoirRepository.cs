@@ -45,13 +45,13 @@ public class ChoirRepository : RepositoryProps<Choir>, IChoirRepository
 
     public async Task<Choir> GetOneByIdAsync(Guid id)
     {
-        var choir = await _dbSet.FindAsync(id);
-        if (choir is null)
+        var entity = await _dbSet.FindAsync(id);
+        if (entity is null)
         {
             throw CustomException.NotFoundException("Choir does not exist");
         }
 
-        return choir;
+        return entity;
     }
 
     public async Task<Choir> CreateOneAsync(Choir entity)
