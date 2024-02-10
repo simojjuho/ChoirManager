@@ -1,5 +1,6 @@
 using Autofac.Extras.Moq;
 using ChoirManager.Business.Abstractions.Shared;
+
 using ChoirManager.Business.Shared;
 using ChoirManager.Core.CoreEntities;
 
@@ -70,5 +71,4 @@ public class UserActions_Tests
             Assert.DoesNotContain<string>(email, emailList);
         }
     }
-
 }
