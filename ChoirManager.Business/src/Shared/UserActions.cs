@@ -1,11 +1,12 @@
 using System.Text.RegularExpressions;
+using ChoirManager.Business.Abstractions.Shared;
 using ChoirManager.Core.CoreEntities;
 
 namespace ChoirManager.Business.Shared;
 
-public class UserActions
+public class UserActions : IUserActions
 {
-    public static List<User> ParseUser(string emailString)
+    public List<User> ParseUser(string emailString)
     {
         var emailAddresses = ParseEmails(emailString);
         List<User> newUsers = new();
@@ -19,7 +20,7 @@ public class UserActions
         return newUsers;
     }
 
-    private static List<string> ParseEmails(string emailString)
+    public List<string> ParseEmails(string emailString)
     {
         List<string> emailList = new();
         var tempList = emailString.Split(',');

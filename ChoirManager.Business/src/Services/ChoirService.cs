@@ -1,5 +1,6 @@
 using AutoMapper;
 using ChoirManager.Business.Abstractions;
+using ChoirManager.Business.Abstractions.Shared;
 using ChoirManager.Business.DTOs.ChoirDtos;
 using ChoirManager.Business.Shared;
 using ChoirManager.Core.Abstractions.QueryOptions;
@@ -12,9 +13,11 @@ namespace ChoirManager.Business.Services;
 public class ChoirService : ServiceProps<Choir>, IChoirService
 {
     private readonly IChoirRepository _repository;
-    public ChoirService(IChoirRepository repository, IMapper mapper) : base(repository, mapper)
+    private readonly IEntityHelper<Choir> _entityHelper;
+    public ChoirService(IChoirRepository repository, IMapper mapper, IEntityHelper<Choir> entityHelper) : base(repository, mapper)
     {
         _repository = repository;
+        _entityHelper = entityHelper;
     }
     public async Task<ChoirGetDto> GetOneAsync(string altKey)
     {
@@ -38,8 +41,8 @@ public class ChoirService : ServiceProps<Choir>, IChoirService
         var updateEntity = _mapper.Map<Choir>(updateDto);
         var original = await _repository.GetOneAsync(altKey);
         updateEntity.Id = original.Id;
-        EntityHelper<Choir>.CheckNullValues(original, updateEntity);
-        EntityHelper<Choir>.ReplaceProperyValues(original, updateEntity);
+        _entityHelper.CheckNullValues(original, updateEntity);
+        _entityHelper.ReplacePropertyValues(original, updateEntity);
         return _mapper.Map<ChoirGetDto>(await _repository.UpdateAsync(original));
     }
 

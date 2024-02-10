@@ -1,8 +1,10 @@
+using ChoirManager.Business.Abstractions.Shared;
+
 namespace ChoirManager.Business.Shared;
 
-public static class EntityHelper<T>
+public class EntityHelper<T> : IEntityHelper<T>
 {
-    public static void ReplaceProperyValues(T original, T update)
+    public void ReplacePropertyValues(T original, T update)
     {
         var newProps = update.GetType().GetProperties();
         foreach (var property in newProps)
@@ -14,7 +16,7 @@ public static class EntityHelper<T>
         }
     }
     
-    public static void CheckNullValues(T original, T update)
+    public void CheckNullValues(T original, T update)
     {
         var newProps = update.GetType().GetProperties();
         foreach (var property in newProps)
