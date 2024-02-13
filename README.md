@@ -7,6 +7,7 @@
 
 ## Introduction
 
+
 ChoirManager is a project of mine, that I am making for managing choirs. As a member of one I've seen a lot of 
 situations, that require a proper solution, such as sharing the notes, planning events. For the choir leader it is
 essential to know in time who is coming on an event and who is not, who is yet to decide, how many singers in a certain
@@ -58,3 +59,4 @@ Business layer:
 ## Author
 
 This code is fully written by me, Juho Simojoki.
+
