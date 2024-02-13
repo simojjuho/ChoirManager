@@ -1,8 +1,9 @@
 # Choir Manager
 
 1. [Introduction](#introduction) 
+2. [Author](#author)
 
-# Introduction
+## Introduction
 
 ChoirManager is a project of mine, that I am making for managing choirs. As a member of one I've seen a lot of 
 situations, that require a proper solution, such as sharing the notes, planning events. For the choir leader it is
