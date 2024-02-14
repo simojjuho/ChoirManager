@@ -7,8 +7,7 @@ namespace ChoirManager.Business.DTOs.ChoirUserDtos;
 
 public class ChoirUserGetDto
 {
-    public ChoirGetDto Choir { get; set; }
-    public UserGetDtoNoEmail User { get; set; }
+    public string MembershipId { get; set; }
     public MembershipStatus MembershipStatus { get; set; }
     public UserRole UserRole { get; set; }
     public VoiceRegisterThree RegisterThreeFold { get; set; }

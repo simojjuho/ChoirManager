@@ -18,27 +18,25 @@ public class UserActions_Tests
     [Fact]
     public void ParseUser_ShouldParse()
     {
-        using (var mock = AutoMock.GetLoose())
+        using var mock = AutoMock.GetLoose();
+        var emailString = "john.fogerty@ccr.com,bon@jovi.com,aretha@franklin.com";
+        var expected = new List<string>
         {
-            var emailString = "john.fogerty@ccr.com,bon@jovi.com,aretha@franklin.com";
-            var expected = new List<string>
-            {
-                "john.fogerty@ccr.com",
-                "bon@jovi.com",
-                "aretha@franklin.com"
-            };
-            mock.Mock<IUserActions>()
-                .Setup(x => x.ParseEmails(emailString))
-                .Returns(expected);
+            "john.fogerty@ccr.com",
+            "bon@jovi.com",
+            "aretha@franklin.com"
+        };
+        mock.Mock<IUserActions>()
+            .Setup(x => x.ParseEmails(emailString))
+            .Returns(expected);
 
-            var userParser = mock.Create<UserActions>();
-            var actual = userParser.ParseUser(emailString);
+        var userParser = mock.Create<UserActions>();
+        var actual = userParser.ParseUser(emailString);
             
-            Assert.True(actual != null);
-            foreach (var user in actual)
-            {
-                Assert.Contains<string>(user.Email, expected);
-            }
+        Assert.True(actual != null);
+        foreach (var user in actual)
+        {
+            Assert.Contains<string>(user.Email, expected);
         }
     }
 
