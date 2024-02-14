@@ -1,6 +1,7 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">/home/juho/.cache/JetBrains/Rider2023.3/resharper-host/temp/Rider/vAny/CoverageData/_ChoirManager.−1236732732/Snapshot/snapshot.utdcvr</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3f2369c0_002D1008_002D4642_002D85b6_002D0ea23c8327b0/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;ChoirManager.Test&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+
   &lt;Project Location="/home/juho/Koodaus/ChoirManager/ChoirManager.Test" Presentation="&amp;lt;ChoirManager.Test&amp;gt;" /&gt;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=6ac79236_002D6ba6_002D4185_002D8737_002D1c14a2e8897c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
@@ -10,4 +11,5 @@
   &lt;TestAncestor&gt;
     &lt;TestId&gt;xUnit::20ED7A2C-14A5-4E6D-9B11-E87865E08984::net7.0::ChoirManager.Test.ChoirManager.Business.Services.ChoirUserService_Test.Create_ShouldThrowError&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
+
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
