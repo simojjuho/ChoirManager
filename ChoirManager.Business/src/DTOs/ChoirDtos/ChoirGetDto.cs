@@ -10,5 +10,4 @@ public class ChoirGetDto
     public string Name { get; set; }
     public string Location { get; set; }
     public DateOnly FoundedAt { get; set; }
-    public List<ChoirUserGetDto> ChoirUsers { get; set; }
 }

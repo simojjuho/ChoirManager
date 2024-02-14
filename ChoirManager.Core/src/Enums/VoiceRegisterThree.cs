@@ -7,7 +7,8 @@ public enum VoiceRegisterThree
     Alto,
     Tenor,
     MiddleMan,
-    Bass
+    Bass,
+    Unknown
 }
 
 /*
