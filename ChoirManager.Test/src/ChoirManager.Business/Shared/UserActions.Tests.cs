@@ -39,7 +39,7 @@ public class UserActions_Tests
             Assert.Contains<string>(user.Email, expected);
         }
     }
-
+    
     [Fact]
     public void ParseEmails_DiscardInvalidEmails()
     {
