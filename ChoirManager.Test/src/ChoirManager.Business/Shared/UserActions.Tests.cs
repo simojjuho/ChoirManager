@@ -37,10 +37,9 @@ public class UserActions_Tests
         foreach (var user in actual)
         {
             Assert.Contains<string>(user.Email, expected);
-
         }
     }
-
+    
     [Fact]
     public void ParseEmails_DiscardInvalidEmails()
     {

@@ -2,7 +2,6 @@ using AutoMapper;
 using ChoirManager.Business.Abstractions;
 using ChoirManager.Business.DTOs.ChoirUserDtos;
 using ChoirManager.Business.Shared;
-
 using ChoirManager.Core.Abstractions.QueryOptions;
 using ChoirManager.Core.Abstractions.Repositories;
 using ChoirManager.Core.CoreEntities;
@@ -12,7 +11,6 @@ namespace ChoirManager.Business.Services;
 public class ChoirUserService : ServiceProps<ChoirUser>, IChoirUserService
 {
     private IChoirUserRepository _repository;
-
     private IChoirRepository _choirRepository;
     private IUserRepository _userRepository;
     
