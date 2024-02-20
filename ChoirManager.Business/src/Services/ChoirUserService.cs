@@ -1,5 +1,6 @@
 using AutoMapper;
 using ChoirManager.Business.Abstractions;
+using ChoirManager.Business.Abstractions.Shared;
 using ChoirManager.Business.DTOs.ChoirUserDtos;
 using ChoirManager.Business.Shared;
 using ChoirManager.Core.Abstractions.QueryOptions;
@@ -10,15 +11,17 @@ namespace ChoirManager.Business.Services;
 
 public class ChoirUserService : ServiceProps<ChoirUser>, IChoirUserService
 {
-    private IChoirUserRepository _repository;
-    private IChoirRepository _choirRepository;
-    private IUserRepository _userRepository;
+    private readonly IChoirUserRepository _repository;
+    private readonly IChoirRepository _choirRepository;
+    private readonly IUserRepository _userRepository;
+    private readonly IEntityHelper<ChoirUser> _helper;
     
-    public ChoirUserService(IChoirUserRepository repository, IUserRepository userRepository, IChoirRepository choirRepository, IMapper mapper) : base(repository, mapper)
+    public ChoirUserService(IChoirUserRepository repository, IUserRepository userRepository, IChoirRepository choirRepository, IEntityHelper<ChoirUser> helper, IMapper mapper) : base(repository, mapper)
     {
         _repository = repository;
         _userRepository = userRepository;
         _choirRepository = choirRepository;
+        _helper = helper;
     }
 
     public async Task<ChoirUserGetDto> GetOneAsync(string altKey)
@@ -53,11 +56,17 @@ public class ChoirUserService : ServiceProps<ChoirUser>, IChoirUserService
 
     public async Task<ChoirUserGetDto> UpdateOneAsync(ChoirUserUpdateDto updateDto, string altKey)
     {
-        throw new NotImplementedException();
+        var original = await _repository.GetOneAsync(altKey);
+        var update = _mapper.Map<ChoirUser>(updateDto);
+        _helper.CheckNullValues(original!, update);
+        _helper.ReplacePropertyValues(original!, update);
+        var updatedEntity = await _repository.UpdateAsync(update);
+        return _mapper.Map<ChoirUserGetDto>(updatedEntity);
     }
 
     public async Task<bool> RemoveOne(string altKey)
     {
-        throw new NotImplementedException();
+        var entity = await _repository.GetOneAsync(altKey);
+        return await _repository.RemoveAsync(entity!);
     }
 }
