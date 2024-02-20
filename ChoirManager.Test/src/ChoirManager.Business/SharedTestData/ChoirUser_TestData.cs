@@ -35,4 +35,13 @@ public static class ChoirUser_TestData
             CreatedAt = DateTimeOffset.Now.ToUniversalTime(),
             UpdatedAt = DateTimeOffset.Now.ToUniversalTime()
         };
+
+    public static ChoirUserUpdateDto ChoirUserWithUpdate =>
+        new()
+        {
+            MembershipStatus = MembershipStatus.Active,
+            UserRole = UserRole.Leader,
+            RegisterThreeFold = VoiceRegisterThree.Bass,
+            RegisterFourFold = VoiceRegisterFour.BassOne
+        };
 }

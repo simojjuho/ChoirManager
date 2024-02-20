@@ -49,7 +49,7 @@ public class ChoirUserService_Test
     }
 
     [Fact]
-    public async void Create_ShouldThrowError()
+    public void Create_ShouldThrowError()
     {
         using var mock = AutoMock.GetLoose();
         var newChoirUserDto = ChoirUser_TestData.ChoirUserCreateDto;
