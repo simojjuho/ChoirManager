@@ -1,7 +1,7 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">/home/juho/.cache/JetBrains/Rider2023.3/resharper-host/temp/Rider/vAny/CoverageData/_ChoirManager.−1236732732/Snapshot/snapshot.utdcvr</s:String>
-	
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=6ac79236_002D6ba6_002D4185_002D8737_002D1c14a2e8897c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+
   &lt;Solution /&gt;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=aa124059_002D89f9_002D4406_002D9dd7_002D96e9c74ca7b4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Create_ShouldThrowError" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;

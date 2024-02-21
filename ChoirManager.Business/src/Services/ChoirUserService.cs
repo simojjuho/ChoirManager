@@ -16,7 +16,7 @@ public class ChoirUserService : ServiceProps<ChoirUser>, IChoirUserService
     private readonly IUserRepository _userRepository;
     private readonly IEntityHelper<ChoirUser> _helper;
     private readonly IChoirUserActions _actions;
-    
+
     public ChoirUserService(IChoirUserRepository repository, IUserRepository userRepository, IChoirRepository choirRepository, IEntityHelper<ChoirUser> helper, IChoirUserActions actions, IMapper mapper) : base(repository, mapper)
     {
         _repository = repository;
