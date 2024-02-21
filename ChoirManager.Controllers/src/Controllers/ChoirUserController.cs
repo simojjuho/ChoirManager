@@ -1,44 +1,48 @@
+using Microsoft.AspNetCore.Mvc;
 using ChoirManager.Business.Abstractions;
 using ChoirManager.Business.DTOs.ChoirUserDtos;
+using ChoirManager.Controllers.Abstractions;
 using ChoirManager.Core.Abstractions.QueryOptions;
 using ChoirManager.Core.Abstractions.Repositories;
 using ChoirManager.Core.CoreEntities;
+using ChoirManager.Core.QueryOptions;
 
 namespace ChoirManager.Controllers.Controllers;
 
-public class ChoirUserController : ControllerProperties<ChoirUserGetDto, ChoirUserCreateDto, ChoirUserUpdateDto>, IChoirUserRepository
+[Route("api/v1/[controller]s")]
+public class ChoirUserController : ControllerProperties<ChoirUserGetDto, ChoirUserCreateDto, ChoirUserUpdateDto>, IChoirUserController
 {
-    public ChoirUserController(IBaseService<ChoirUserGetDto, ChoirUserCreateDto, ChoirUserUpdateDto> service) : base(service)
+    public ChoirUserController(IChoirUserService service) : base(service)
     {
     }
 
-    public Task<ChoirUser?> GetOneAsync(string altKey)
+    [HttpGet("{altKey}")]
+    public async Task<ActionResult<ChoirUserGetDto>> GetOneAsync([FromRoute] string altKey)
     {
-        throw new NotImplementedException();
+        return await _service.GetOneAsync(altKey);
     }
     
-    public Task<ChoirUser[]> GetAllAsync(IQueryOptions queryOptions)
+    [HttpGet]
+    public async Task<ActionResult<ChoirUserGetDto[]>> GetManyAsync([FromQuery] QueryOptions queryOptions)
     {
-        throw new NotImplementedException();
+        return await _service.GetManyAsync(queryOptions);
     }
 
-    public Task<ChoirUser> GetOneByIdAsync(Guid id)
+    [HttpPost]
+    public async Task<ActionResult<ChoirUserGetDto>> CreateOneAsync([FromBody] ChoirUserCreateDto choirCreateDto)
     {
-        throw new NotImplementedException();
+        return await _service.CreateOneAsync(choirCreateDto);
     }
 
-    public Task<ChoirUser> CreateOneAsync(ChoirUser entity)
+    [HttpPatch("{altKey}")]
+    public async Task<ActionResult<ChoirUserGetDto>> UpdateOneAsync([FromRoute] string altKey, ChoirUserUpdateDto choirUpdateDto)
     {
-        throw new NotImplementedException();
+        return await _service.UpdateOneAsync(choirUpdateDto, altKey);
     }
 
-    public Task<ChoirUser> UpdateAsync(ChoirUser entity)
+    [HttpDelete]
+    public async Task<ActionResult<bool>> RemoveOneAsync([FromRoute] string altKey)
     {
-        throw new NotImplementedException();
-    }
-
-    public Task<bool> RemoveAsync(ChoirUser entity)
-    {
-        throw new NotImplementedException();
+        return await _service.RemoveOne(altKey);
     }
 }
