@@ -4,11 +4,12 @@ using ChoirManager.Core.Enums;
 
 namespace ChoirManager.Test.ChoirManager.Business.SharedTestData;
 
-public static class ChoirUser_TestData
+public static class ChoirUserTestData
 {
     public static ChoirUserGetDto ChoirUserGetDto =>
         new()
         {
+            MembershipId = "Kris24-5367-453",
             MembershipStatus = MembershipStatus.Pending,
             UserRole = UserRole.Member,
             RegisterThreeFold = VoiceRegisterThree.Unknown,
