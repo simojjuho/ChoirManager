@@ -28,11 +28,6 @@ public class UserRepository : RepositoryProps<User>, IUserRepository
     public async Task<User?> GetOneAsync(string altKey)
     {
         var entity = await _dbSet.FirstOrDefaultAsync(prop => prop.Email.ToLower() == altKey.ToLower());
-        if (entity is null)
-        {
-            throw CustomException.NotFoundException("User does not exist");
-        }
-
         return entity;
     }
 

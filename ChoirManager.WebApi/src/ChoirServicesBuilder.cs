@@ -25,7 +25,9 @@ public static class ChoirServicesBuilder
             .AddScoped<IEntityHelper<User>, EntityHelper<User>>()
             .AddScoped<IChoirUserRepository, ChoirUserRepository>()
             .AddScoped<IChoirUserService, ChoirUserService>()
-            .AddScoped<IEntityHelper<ChoirUser>, EntityHelper<ChoirUser>>();
+            .AddScoped<IChoirUserController, ChoirUserController>()
+            .AddScoped<IEntityHelper<ChoirUser>, EntityHelper<ChoirUser>>()
+            .AddScoped<IChoirUserActions, ChoirUserActions>();
 
         return services;
     }
