@@ -1,5 +1,6 @@
 using AutoMapper;
 using ChoirManager.Business.DTOs.ChoirDtos;
+using ChoirManager.Business.DTOs.ChoirUserDtos;
 using ChoirManager.Business.DTOs.UserDtos;
 using ChoirManager.Core.CoreEntities;
 
@@ -15,5 +16,8 @@ public class AutoMapperProfile : Profile
         CreateMap<User, UserGetDto>();
         CreateMap<UserCreateDto, User>();
         CreateMap<UserUpdateDto, User>();
+        CreateMap<ChoirUser, ChoirUserGetDto>();
+        CreateMap<ChoirUserCreateDto, ChoirUser>();
+        CreateMap<ChoirUserUpdateDto, ChoirUser>();
     }
 }
