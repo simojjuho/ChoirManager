@@ -8,5 +8,7 @@ public enum VoiceRegisterFour
     AltoTwo,
     TenorOne,
     TenorTwo,
+    BassOne,
+    BassTwo,
     Unknown
 }

@@ -1,3 +1,4 @@
+using ChoirManager.Business.DTOs.UserDtos;
 using ChoirManager.Core.CoreEntities;
 using ChoirManager.Core.Enums;
 
